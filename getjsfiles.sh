@@ -1,4 +1,3 @@
 #!/bin/bash
 
-find . -type f | html-tool attribs src | grep '\.js' | tee -a $2
-
+curl $1 | grep -Po '(?<=(src=))"([^\"]+)' | grep '\.js' | sed 's/"//' | tee -a $2
