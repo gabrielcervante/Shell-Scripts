@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl $1 | grep -Po '(?<=(src=))"([^\"]+)' | grep '\.js' | sed 's/"//' | tee -a $2
+grep -Po "(?<=src=('|\"))[^('|\")]*" | grep '\.js' | tee -a $1
